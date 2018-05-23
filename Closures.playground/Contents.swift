@@ -41,16 +41,21 @@ let reversedList = list.sorted(by: {(x: Int, y: Int) -> Bool in
     return x > y
 })
 
-print(reversedList)
-
 // Use closure to filter a collection of [Int]
-let filteredList = list.filter { (x: Int) -> Bool in
+let filteredList = list.filter { x -> Bool in
     return x > 5
 }
 
-// Using reduce
-let sum = list.reduce(0) { (x: Result, <#Int#>) -> Result in
-    <#code#>
+// Using Map.
+let squaredList = list.map { result -> Int in
+    return result * result
+}
+
+// Using reduce.  Syntax -> 0 means our starting point for our sum
+//                          result, x; are our declared variables
+//                          -> Int; is returning an Int
+let sum = list.reduce(0) { result, x -> Int in
+    return result + x
 }
 
 
